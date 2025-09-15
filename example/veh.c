@@ -10,6 +10,7 @@ ULONGLONG Handler(PEXCEPTION_POINTERS pException){
 	}
 	return EXCEPTION_CONTINUE_EXECUTION;
 }
+
 int main() {
 	char *FileName = "zack.bin";
 	WINBOOL bStatus; DWORD NumberBytesRead;
