@@ -14,7 +14,7 @@ This structure allows for a more versatile approach to exception handling:
 
 **More depth bro**
 ---
-I did a decent reverse engineering on it, lol. If you want to see it, check out this link: [https://discord.gg/C3MGmCtGtJ](https://discord.gg/C3MGmCtGtJ). Maybe you'll find something useful there :) </br>
+I did a not-so-decent reverse engineering on it, lol. If you want to see it, check out this link: [https://discord.gg/C3MGmCtGtJ](https://discord.gg/C3MGmCtGtJ). Maybe you'll find something useful there :) </br>
 This software demonstrates how we can use this mechanism for **shellcode execution**. I add a handler to the list using the `AddVectoredExceptionHandler` function. Inside this handler, I specifically treat segmentation fault/memory corruption exceptions by modifying the `CONTEXT` record received by VEH. This allows me to change the `RIP` register, which points to the next instruction, to the address of my shellcode.
 
 Articles :
