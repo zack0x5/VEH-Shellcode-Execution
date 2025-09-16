@@ -14,8 +14,8 @@ This structure allows for a more versatile approach to exception handling:
 
 **More depth bro**
 ---
-I did a not-so-decent reverse engineering on it, lol. If you want to see it, check out this link: [https://discord.gg/C3MGmCtGtJ](https://discord.gg/C3MGmCtGtJ). Maybe you'll find something useful there :) </br>
-This software demonstrates how we can use this mechanism for **shellcode execution**. I add a handler to the list using the `AddVectoredExceptionHandler` function. Inside this handler, I specifically treat segmentation fault/memory corruption exceptions by modifying the `CONTEXT` record received by VEH. This allows me to change the `RIP` register, which points to the next instruction, to the address of my shellcode.
+I did some not-so-decent reverse engineering on the VEH, lol. If you're interested in seeing it, check out this link: https://discord.gg/C3MGmCtGtJ, maybe you'll find something useful there :)</br>
+This software demonstrates how we can use this mechanism (VEH) for shellcode execution. In the example code, I add an exception handler using the AddVectoredExceptionHandler function. Then, I intentionally cause a</br> segmentation fault to trigger an exception and redirect it to my handler. The VEH stores the thread's context in the EXCEPTION_POINTERS structure, and through that, I modify one of its registers (RIP) and change it to point</br> to the start of my shellcode.
 
 Articles :
 * https://www.ibm.com/think/x-force/using-veh-for-defense-evasion-process-injection
